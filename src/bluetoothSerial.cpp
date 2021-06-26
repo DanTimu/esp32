@@ -23,16 +23,18 @@ void loop()
   {
     BTData = SerialBT.read();
     Serial.write(BTData);
+    //Sending back through bluetooth the character sent.
     SerialBT.print("Received: ");
     char c = BTData;
     SerialBT.println(c);  
     SerialBT.print("Insert char: ");  
+    //Added a new line with a comment
   }
  
-  /* If received Character is 1, then turn ON the LED */
-  /* You can also compare the received data with decimal equivalent */
-  /* 48 for 0 and 49 for 1 */
-  /* if(BTData == 48) or if(BTData == 49) */
+  /* If received Character is 1, then turn ON the LED
+     You can also compare the received data with decimal equivalent
+     48 for 0 and 49 for 1
+     if(BTData == 48) or if(BTData == 49) */
   if(BTData == '1')
   {
     digitalWrite(ledPIN, HIGH);
